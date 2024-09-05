@@ -47,6 +47,8 @@
 
 .rbc-time-view {
   border-color: #eee !important;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .rbc-time-header {
@@ -62,7 +64,7 @@
 }
 
 .rbc-time-gutter.rbc-time-column .rbc-timeslot-group {
-  padding: 0px 20px !important;
+  padding: 0px 8px !important;
 }
 
 .rbc-timeslot-group {
@@ -76,7 +78,7 @@
 .rbc-event {
   border: none !important;
   color: black !important;
-  padding: 10px !important;
+  padding: 6px !important;
   margin: 10px !important;
   width: 99% !important;
 }
