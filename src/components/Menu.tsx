@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { role } from "@/lib/data";
 import Image from "next/image";
+import Link from "next/link";
 
 const menuItems = [
   {
@@ -85,8 +86,8 @@ const menuItems = [
       },
       {
         icon: "/images/announcement.png",
-        label: "Announce",
-        href: "/list/announce",
+        label: "Announcements",
+        href: "/list/announcements",
         visible: ["admin", "teacher", "student", "parent"],
       },
     ],
@@ -118,23 +119,26 @@ const menuItems = [
 
 export default function Menu() {
   return (
-    <div className="">
-      {menuItems.map((category) => (
-        <div className="flex flex-col gap-2" key={category.title}>
-          <span className="hidden xl:block text-gray-400 font-light my-4">
-            {category.title}
+    <div className="mt-4 text-sm">
+      {menuItems.map((i) => (
+        <div className="flex flex-col gap-2" key={i.title}>
+          <span className="hidden lg:block text-gray-400 font-light my-4">
+            {i.title}
           </span>
-
-          {category.items.map((item) => (
-            <Link
-              href={item.href}
-              key={item.label}
-              className="flex items-center justify-center xl:justify-start gap-4 text-gray-500 py-2"
-            >
-              <Image src={item.icon} alt="" width={20} height={20} />
-              <span className="hidden xl:block">{item.label}</span>
-            </Link>
-          ))}
+          {i.items.map((item) => {
+            if (item.visible.includes(role)) {
+              return (
+                <Link
+                  href={item.href}
+                  key={item.label}
+                  className="flex items-center justify-center lg:justify-start gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight"
+                >
+                  <Image src={item.icon} alt="" width={20} height={20} />
+                  <span className="hidden lg:block">{item.label}</span>
+                </Link>
+              );
+            }
+          })}
         </div>
       ))}
     </div>
