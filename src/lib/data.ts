@@ -1,7 +1,7 @@
 // TEMPORARY DATA
 
-// export let role = "admin";
-export let role = "student";
+export let role = "admin";
+// export let role = "student";
 // export let role = "parent";
 // export let role = "teacher ";
 
@@ -424,7 +424,7 @@ export const classesData = [
     supervisor: "Iva Frank",
   },
   {
-    id: 5,
+    id: 6,
     name: "5B",
     capacity: 20,
     grade: 5,
@@ -855,7 +855,7 @@ export const eventsData = [
   },
 ];
 
-export const announceData = [
+export const announcementsData = [
   {
     id: 1,
     title: "About 4A Math Test",
