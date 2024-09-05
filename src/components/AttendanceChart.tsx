@@ -11,6 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import MoreDots from "./MoreDots";
 
 const data = [
   {
@@ -45,11 +46,7 @@ const AttendanceChart = () => {
     <div className="bg-white rounded-lg p-4 h-full">
       <div className="flex justify-between items-center">
         <h1 className="text-lg font-semibold">Attendance</h1>
-        <div className="flex gap-0.5">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-500" />
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-500" />
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-500" />
-        </div>
+        <MoreDots />
       </div>
       <ResponsiveContainer width="100%" height="90%">
         <BarChart width={500} height={300} data={data} barSize={20}>

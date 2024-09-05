@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import MoreDots from "./MoreDots";
 
 const data = [
   { name: "Boys", value: 144, color: "#C3EBFA", percent: 48 },
@@ -15,11 +16,7 @@ export default function CountChart() {
       {/* TITLE */}
       <div className="flex justify-between items-center">
         <h1 className="text-lg font-semibold">Students</h1>
-        <div className="flex gap-0.5">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-500" />
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-500" />
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-500" />
-        </div>
+        <MoreDots />
       </div>
       {/* CHART */}
       <div className="relative w-full h-[75%]">

@@ -10,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import MoreDots from "./MoreDots";
 
 const data = [
   {
@@ -79,11 +80,7 @@ export default function FinanceChart() {
     <div className="bg-white rounded-xl w-full h-full p-4">
       <div className="flex justify-between items-center">
         <h1 className="text-lg font-semibold">Finance</h1>
-        <div className="flex gap-0.5">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-500" />
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-500" />
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-gray-500" />
-        </div>
+        <MoreDots />
       </div>
       <ResponsiveContainer width="100%" height="90%">
         <LineChart

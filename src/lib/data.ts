@@ -852,7 +852,7 @@ export const eventsData = [
   },
 ];
 
-export const announcementsData = [
+export const announceData = [
   {
     id: 1,
     title: "About 4A Math Test",
@@ -914,7 +914,6 @@ export const announcementsData = [
     date: "2025-01-01",
   },
 ];
-
 
 // YOU SHOULD CHANGE THE DATES OF THE EVENTS TO THE CURRENT DATE TO SEE THE EVENTS ON THE CALENDAR
 export const calendarEvents = [
