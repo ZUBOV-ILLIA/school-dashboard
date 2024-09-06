@@ -53,8 +53,13 @@ export default function ClassListPage() {
         <div className="flex items-center gap-2">
           {role === "admin" && (
             <>
-              <FormModal table="parent" type="update" data={item} />
-              <FormModal table="parent" type="delete" id={item.id} />
+              <FormModal table="class" type="update" data={item} />
+              <FormModal
+                table="class"
+                type="delete"
+                id={item.id}
+                name={item.name}
+              />
             </>
           )}
         </div>

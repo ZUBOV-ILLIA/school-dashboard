@@ -28,6 +28,7 @@ export default function FormModal({
   type,
   data,
   id,
+  name,
 }: {
   table:
     | "teacher"
@@ -45,6 +46,7 @@ export default function FormModal({
   type: "create" | "update" | "delete";
   data?: any;
   id?: number;
+  name?: string;
 }) {
   const size = type === "create" ? "w-8 h-8" : "w-7 h-7";
   const bgColor =
@@ -57,10 +59,11 @@ export default function FormModal({
   const [open, setOpen] = useState(false);
 
   const Form = () => {
-    return type === "delete" && id ? (
+    return type === "delete" && id && name ? (
       <form action="" className="p-4 flex flex-col gap-4">
         <span className="text-center font-medium">
-          All data will be lost. Are you sure you want to delete this {table}?
+          All data will be lost. Are you sure you want to delete this
+          {` ${table} - ${name}`} ?
         </span>
         <button className="bg-red-700 text-white py-2 px-4 rounded-md border-none w-max self-center">
           Delete

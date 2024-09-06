@@ -38,11 +38,10 @@ const TeacherForm = ({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>({
-    resolver: zodResolver(schema),
-  });
+  } = useForm<Inputs>({ resolver: zodResolver(schema) });
 
   const onSubmit = handleSubmit((data) => {
+    console.log(errors);
     console.log(data);
   });
 
@@ -50,7 +49,7 @@ const TeacherForm = ({
     <form className="flex flex-col gap-8" onSubmit={onSubmit}>
       <h1 className="text-xl font-semibold">Create a new teacher</h1>
       <span className="text-xs text-gray-400 font-medium">
-        Authentication Information
+        {type === "create" ? "Add a new teacher" : "Update Account"}
       </span>
       <div className="flex justify-between flex-wrap gap-4">
         <InputField
@@ -144,7 +143,7 @@ const TeacherForm = ({
             className="text-xs text-gray-500 flex items-center gap-2 cursor-pointer"
             htmlFor="img"
           >
-            <Image src="/upload.png" alt="" width={28} height={28} />
+            <Image src="/images/upload.png" alt="" width={28} height={28} />
             <span>Upload a photo</span>
           </label>
           <input type="file" id="img" {...register("img")} className="hidden" />
