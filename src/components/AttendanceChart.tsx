@@ -42,6 +42,13 @@ const data = [
 ];
 
 const AttendanceChart = () => {
+  // just removing library temporary warnings
+  const error = console.error;
+  console.error = (...args: any) => {
+    if (/defaultProps/.test(args[0])) return;
+    error(...args);
+  };
+
   return (
     <div className="bg-white rounded-lg p-4 h-full">
       <div className="flex justify-between items-center">

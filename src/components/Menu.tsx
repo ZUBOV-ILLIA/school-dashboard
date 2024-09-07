@@ -66,24 +66,24 @@ const menuItems = [
         href: "/list/results",
         visible: ["admin", "teacher", "student", "parent"],
       },
-      {
-        icon: "/images/attendance.png",
-        label: "Attendance",
-        href: "/list/attendance",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
+      // {
+      //   icon: "/images/attendance.png",
+      //   label: "Attendance",
+      //   href: "/list/attendance",
+      //   visible: ["admin", "teacher", "student", "parent"],
+      // },
       {
         icon: "/images/calendar.png",
         label: "Events",
         href: "/list/events",
         visible: ["admin", "teacher", "student", "parent"],
       },
-      {
-        icon: "/images/message.png",
-        label: "Messages",
-        href: "/list/messages",
-        visible: ["admin", "teacher", "student", "parent"],
-      },
+      // {
+      //   icon: "/images/message.png",
+      //   label: "Messages",
+      //   href: "/list/messages",
+      //   visible: ["admin", "teacher", "student", "parent"],
+      // },
       {
         icon: "/images/announcement.png",
         label: "Announcements",
@@ -133,13 +133,13 @@ export default function Menu({ isMenuOpened }: Props) {
                 <Link
                   href={item.href}
                   key={item.label}
-                  className={`flex items-center  lg:justify-start ${
+                  className={`flex items-center  md:justify-start ${
                     isMenuOpened ? "justify-start" : "justify-center"
                   } gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight`}
                 >
                   <Image src={item.icon} alt="" width={20} height={20} />
                   <span
-                    className={`${isMenuOpened ? "block" : "hidden"} lg:block`}
+                    className={`${isMenuOpened ? "block" : "hidden"} md:block`}
                   >
                     {item.label}
                   </span>

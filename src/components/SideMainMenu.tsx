@@ -39,11 +39,17 @@ export default function SideMainMenu() {
       >
         <Link
           href="#"
-          className="flex items-center justify-center mb-4 xl:mb-0 xl:justify-start gap-2 my"
+          className="flex items-center justify-start mb-4 xl:mb-0 gap-2 my"
           onClick={toggleMenu}
         >
           <Image src="/images/logo.png" alt="logo" width={32} height={32} />
-          <span className="hidden lg:block font-bold">Dashboard</span>
+          <span
+            className={`${
+              !isMenuOpened && windowWidth === "sm" ? "hidden" : ""
+            } md:block font-bold`}
+          >
+            Dashboard
+          </span>
         </Link>
         <Menu isMenuOpened={isMenuOpened && windowWidth === "sm"} />
       </div>

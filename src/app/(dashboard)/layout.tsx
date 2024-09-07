@@ -12,12 +12,12 @@ export default function DashboardLayout({
   return (
     <div className="min-h-screen flex">
       {/* left */}
-      <div className="w-0 h-0 p-0 md:w-[8%] lg:w-[16%] xl:w-[14%] relative">
+      <div className="w-0 h-0 p-0 md:w-max relative">
         <SideMainMenu />
       </div>
 
       {/* right */}
-      <div className="md:w-[92%] lg:w-[84%] xl:w-[86%] bg-[#f7f8fa] overflow-scroll flex flex-col">
+      <div className="bg-[#f7f8fa] overflow-scroll flex flex-col grow">
         <HeadNavbar />
         {children}
       </div>
