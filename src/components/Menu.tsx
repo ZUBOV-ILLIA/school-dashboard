@@ -1,8 +1,7 @@
-// import { role } from "@/lib/data";
 import { RoleState, setRole } from "@/app/GlobalRedux/role/roleSlice";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 

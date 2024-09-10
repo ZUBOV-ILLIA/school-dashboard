@@ -5,10 +5,22 @@ import Image from "next/image";
 import Menu from "@/components/Menu";
 import { useEffect, useState } from "react";
 import useWindowWidth from "@/customHoocks/useWindowWidth";
+import { usePathname } from "next/navigation";
 
 export default function SideMainMenu() {
+  const pathName = usePathname();
   const [isMenuOpened, setIsMenuOpened] = useState(false);
   const windowWidth = useWindowWidth();
+
+  useEffect(() => {
+    if (windowWidth !== "sm") {
+      setIsMenuOpened(false);
+    }
+  }, [windowWidth]);
+
+  useEffect(() => {
+    setIsMenuOpened(false);
+  }, [pathName]);
 
   const toggleMenu = (
     e: React.MouseEvent<HTMLAnchorElement | HTMLDivElement>
@@ -19,12 +31,6 @@ export default function SideMainMenu() {
       setIsMenuOpened(!isMenuOpened);
     }
   };
-
-  useEffect(() => {
-    if (windowWidth !== "sm") {
-      setIsMenuOpened(false);
-    }
-  }, [windowWidth]);
 
   return (
     <>

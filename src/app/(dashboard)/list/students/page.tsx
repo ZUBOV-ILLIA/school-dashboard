@@ -1,10 +1,14 @@
+"use client";
+
+import { RoleState } from "@/app/GlobalRedux/role/roleSlice";
 import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
-import { role, studentsData } from "@/lib/data";
+import { studentsData } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 type Student = {
   id: number;
@@ -50,6 +54,7 @@ const columns = [
 ];
 
 const StudentListPage = () => {
+  const role = useSelector((state: { role: RoleState }) => state.role.role);
   const renderRow = (item: Student) => (
     <tr
       key={item.id}

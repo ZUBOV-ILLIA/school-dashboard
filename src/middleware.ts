@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { role } from "./lib/data";
 
 export function middleware(req: NextRequest) {
   const role = req.cookies.get("role")?.value;

@@ -1,14 +1,18 @@
+"use client";
+
+import { RoleState } from "@/app/GlobalRedux/role/roleSlice";
 import Announcements from "@/components/Announcements";
 import BigCalendar from "@/components/BigCalendar";
 import FormModal from "@/components/FormModal";
 import Performance from "@/components/Performance";
-import { role } from "@/lib/data";
 import { teachersData } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const SingleTeacherPage = ({ params }: { params: { id: string } }) => {
   const teacher = teachersData.find((el) => el.id === +params.id);
+  const role = useSelector((state: { role: RoleState }) => state.role.role);
 
   return (
     <div className="flex-1 p-4 flex flex-col gap-4 xl:flex-row">

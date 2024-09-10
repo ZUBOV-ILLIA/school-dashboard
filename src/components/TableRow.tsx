@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { role } from "@/lib/data";
 import FormModal from "./FormModal";
+import { useSelector } from "react-redux";
+import { RoleState } from "@/app/GlobalRedux/role/roleSlice";
 
 export default function TableRow({ item }: { item: any }) {
+  const role = useSelector((state: { role: RoleState }) => state.role.role);
+
   return (
     <tr className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight">
       <td className="flex items-center gap-4 p-4">

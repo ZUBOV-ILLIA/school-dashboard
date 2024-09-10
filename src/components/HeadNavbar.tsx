@@ -1,3 +1,5 @@
+"use client";
+
 import { RoleState } from "@/app/GlobalRedux/role/roleSlice";
 import Image from "next/image";
 import { useSelector } from "react-redux";
