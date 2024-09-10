@@ -1,8 +1,10 @@
 // import { role } from "@/lib/data";
+import { RoleState, setRole } from "@/app/GlobalRedux/role/roleSlice";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const menuItems = [
   {
@@ -125,15 +127,17 @@ type Props = {
 
 export default function Menu({ isMenuOpened }: Props) {
   const router = useRouter();
-  const [role, setRole] = useState("");
+  const dispatch = useDispatch();
+  const role = useSelector((state: { role: RoleState }) => state.role.role);
 
   useEffect(() => {
     const cookies = document.cookie?.split("=");
     const cookiesRole = cookies?.indexOf("role");
 
     if (cookiesRole !== -1) {
-      setRole(cookies[cookiesRole + 1]);
+      dispatch(setRole(cookies[cookiesRole + 1]));
     } else {
+      dispatch(setRole(""));
       router.push("/");
     }
   }, []);
@@ -149,9 +153,18 @@ export default function Menu({ isMenuOpened }: Props) {
                 <Link
                   href={item.href}
                   key={item.label}
+                  onClick={(e) => {
+                    if (["/settings", "/profile"].includes(item.href)) {
+                      e.preventDefault();
+                    }
+                  }}
                   className={`flex items-center  md:justify-start ${
                     isMenuOpened ? "justify-start" : "justify-center"
-                  } gap-4 text-gray-500 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight`}
+                  } ${
+                    ["/settings", "/profile"].includes(item.href)
+                      ? "text-gray-200"
+                      : "text-gray-500"
+                  } gap-4 py-2 md:px-2 rounded-md hover:bg-lamaSkyLight`}
                 >
                   <Image src={item.icon} alt="" width={20} height={20} />
                   <span

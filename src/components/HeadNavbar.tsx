@@ -1,6 +1,10 @@
+import { RoleState } from "@/app/GlobalRedux/role/roleSlice";
 import Image from "next/image";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const role = useSelector((state: { role: RoleState }) => state.role.role);
+
   return (
     <div className="flex items-center justify-between p-4">
       {/* SEARCH BAR */}
@@ -26,7 +30,9 @@ const Navbar = () => {
         </div>
         <div className="flex flex-col">
           <span className="text-xs leading-3 font-medium">John Doe</span>
-          <span className="text-[10px] text-gray-500 text-right">Admin</span>
+          <span className="text-[10px] text-gray-500 text-right">
+            {role.toUpperCase() || "..."}
+          </span>
         </div>
         <Image
           src="/images/avatar.png"

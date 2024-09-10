@@ -1,10 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { setRole } from "./GlobalRedux/role/roleSlice";
 
 const Homepage = () => {
-  function setRoleCookie(role: string) {
+  const dispatch = useDispatch();
+
+  function handleSetRole(role: string) {
     document.cookie = `role=${role}; path=/; max-age=${60 * 60 * 24}`;
+    dispatch(setRole(role));
   }
 
   return (
@@ -13,7 +18,7 @@ const Homepage = () => {
         href="/admin"
         className="px-4 py-2 bg-lamaPurple border border-cyan-950 text-xl rounded"
         onClick={() => {
-          setRoleCookie("admin");
+          handleSetRole("admin");
         }}
       >
         Admin
@@ -22,7 +27,7 @@ const Homepage = () => {
         href="/student"
         className="px-4 py-2 bg-lamaPurple border border-cyan-950 text-xl rounded"
         onClick={() => {
-          setRoleCookie("student");
+          handleSetRole("student");
         }}
       >
         Student
@@ -31,7 +36,7 @@ const Homepage = () => {
         href="/teacher"
         className="px-4 py-2 bg-lamaPurple border border-cyan-950 text-xl rounded"
         onClick={() => {
-          setRoleCookie("teacher");
+          handleSetRole("teacher");
         }}
       >
         Teacher
