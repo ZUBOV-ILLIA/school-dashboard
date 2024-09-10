@@ -72,7 +72,7 @@ export default function FormModal({
     ) : type === "create" || type === "update" ? (
       forms[table](type, data)
     ) : (
-      "Form not found!"
+      "Cooming soon!"
     );
   };
 

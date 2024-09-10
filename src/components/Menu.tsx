@@ -1,6 +1,8 @@
-import { role } from "@/lib/data";
+// import { role } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const menuItems = [
   {
@@ -122,6 +124,20 @@ type Props = {
 };
 
 export default function Menu({ isMenuOpened }: Props) {
+  const router = useRouter();
+  const [role, setRole] = useState("");
+
+  useEffect(() => {
+    const cookies = document.cookie?.split("=");
+    const cookiesRole = cookies?.indexOf("role");
+
+    if (cookiesRole !== -1) {
+      setRole(cookies[cookiesRole + 1]);
+    } else {
+      router.push("/");
+    }
+  }, []);
+
   return (
     <div className="mt-4 text-sm">
       {menuItems.map((i) => (
