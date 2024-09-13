@@ -1,4 +1,4 @@
-import Announcements from "@/components/Announce";
+import Announcements from "@/components/Announcements";
 import BigCalendar from "@/components/BigCalendar";
 
 export default function ParentPage() {
